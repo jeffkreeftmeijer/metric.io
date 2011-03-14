@@ -17,6 +17,14 @@ watch("app/(.*/.*)\.rb") do |match|
   run_spec %{spec/#{match[1]}_spec.rb}
 end
 
+watch("app/controllers/(.*)_controller\.rb") do |match|
+  run_spec %{spec/acceptance/#{match[1]}_spec.rb}
+end
+
+watch("app/views/(.*)/(.*)") do |match|
+  run_spec %{spec/acceptance/#{match[1]}_spec.rb}
+end
+
 watch("^lib/(.*)\.rb") do |match|
   run_spec %{spec/lib/#{match[1]}_spec.rb}
 end

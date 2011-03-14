@@ -14,7 +14,11 @@ end
 
 group :test do
   gem 'rspec-rails'
+  gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
+
   gem 'mocha'
-  gem 'fuubar'
   gem 'timecop'
+  gem 'launchy'
+
+  gem 'fuubar'
 end

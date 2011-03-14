@@ -1,0 +1,3 @@
+<% @measurements.each do |measurement| %>
+  <div class="measurement_<%= measurement.hourstamp %>"><%= measurement.pageviews %></div>
+<% end %>

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Measurement do
   before do
     Measurement.without_callback(:save, :after, :push_changes) do
-      @measurement = Measurement.create!
+      @measurement = Measurement.create!(:site_id => 123)
     end
   end
 
@@ -19,7 +19,7 @@ describe Measurement do
   describe "#push_changes" do
 
     it "pushes the update" do
-      Pusher['measurements'].expects(:trigger).with('measurement-saved', @measurement.attributes)
+      Pusher['site-123'].expects(:trigger).with('measurement-saved', @measurement.attributes)
       @measurement.push_changes
     end
 

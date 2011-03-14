@@ -4,6 +4,6 @@ class Measurement < ActiveRecord::Base
   after_save :push_changes
 
   def push_changes
-    Pusher['measurements'].trigger('measurement-saved', attributes)
+    Pusher["site-#{site_id}"].trigger('measurement-saved', attributes)
   end
 end

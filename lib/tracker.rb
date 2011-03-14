@@ -1,10 +1,10 @@
 class Tracker
 
   def self.track(site)
-    if pageview = site.pageviews.first
-      pageview.update_attributes!(:pageviews => pageview.pageviews + 1)
+    if measurement = site.measurements.first
+      measurement.update_attributes!(:pageviews => measurement.pageviews + 1)
     else
-      site.pageviews.create!
+      site.measurements.create!
     end
 
   end

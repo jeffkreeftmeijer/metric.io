@@ -9,35 +9,35 @@ describe Tracker do
       @site = Site.create!
     end
 
-    it "creates a new pageview" do
-      expect { Tracker.track(@site) }.to change(Pageview, :count).by(1)
+    it "creates a new measurement" do
+      expect { Tracker.track(@site) }.to change(Measurement, :count).by(1)
     end
 
-    it "fails to create a pageview without a site" do
+    it "fails to create a measurement without a site" do
       expect { Tracker.track }.to raise_error(ArgumentError)
     end
 
-    context "when a Pageview record for this site already exists" do
+    context "when a measurement record for this site already exists" do
 
-      before { @pageview = @site.pageviews.create! }
+      before { @measurement = @site.measurements.create! }
 
-      it "updates the existing Pageview" do
-        expect { Tracker.track(@site) }.not_to change(Pageview, :count)
-        @pageview.reload.pageviews.should == 2
+      it "updates the existing measurement" do
+        expect { Tracker.track(@site) }.not_to change(Measurement, :count)
+        @measurement.reload.pageviews.should == 2
       end
 
     end
 
-    describe "the returned Pageview object" do
+    describe "the returned measurement object" do
 
-      before { @pageview = Tracker.track(@site) }
+      before { @measurement = Tracker.track(@site) }
 
       it "has a site id" do
-        @pageview.site.should == @site
+        @measurement.site.should == @site
       end
 
       it "has a pageview count of 1" do
-        @pageview.pageviews.should == 1
+        @measurement.pageviews.should == 1
       end
 
     end

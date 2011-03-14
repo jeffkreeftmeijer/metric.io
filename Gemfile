@@ -16,4 +16,5 @@ group :test do
   gem 'rspec-rails'
   gem 'mocha'
   gem 'fuubar'
+  gem 'timecop'
 end

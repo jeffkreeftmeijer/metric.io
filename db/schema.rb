@@ -10,13 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110314153416) do
+ActiveRecord::Schema.define(:version => 20110314155906) do
 
   create_table "measurements", :force => true do |t|
     t.integer  "site_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "pageviews",  :default => 1
+    t.time     "hourstamp"
   end
 
   create_table "sites", :force => true do |t|

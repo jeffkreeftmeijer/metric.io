@@ -5,6 +5,12 @@ GIT
     rack (1.2.1)
 
 GIT
+  remote: git://github.com/rails/arel.git
+  revision: 05887fc406820f2e8fecc5cedcc42b87cf9f0ab1
+  specs:
+    arel (2.0.7.beta.20110228092631)
+
+GIT
   remote: git://github.com/rails/rails.git
   revision: dfa9e2811320d44ff140f115a4f7a3abb41bda16
   specs:
@@ -54,7 +60,6 @@ GEM
   remote: http://rubygems.org/
   specs:
     abstract (1.0.0)
-    arel (2.0.9)
     bcrypt-ruby (2.1.4)
     builder (3.0.0)
     crack (0.1.8)
@@ -109,6 +114,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  arel!
   mocha
   pusher
   rack!

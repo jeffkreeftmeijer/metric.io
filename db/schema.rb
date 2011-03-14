@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(:version => 20110314155906) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "pageviews",  :default => 1
-    t.time     "hourstamp"
+    t.datetime "hourstamp"
   end
 
   create_table "sites", :force => true do |t|

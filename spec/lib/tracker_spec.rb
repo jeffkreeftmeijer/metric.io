@@ -9,7 +9,7 @@ describe Tracker do
       @site = Site.create!
     end
 
-    it "stores the tracked pageview" do
+    it "creates a new pageview" do
       expect { Tracker.track(@site) }.to change(Pageview, :count).by(1)
     end
 
@@ -17,12 +17,27 @@ describe Tracker do
       expect { Tracker.track }.to raise_error(ArgumentError)
     end
 
-    context "the returned Pageview object" do
+    context "when a Pageview record for this site already exists" do
+
+      before { @pageview = @site.pageviews.create! }
+
+      it "updates the existing Pageview" do
+        expect { Tracker.track(@site) }.not_to change(Pageview, :count)
+        @pageview.reload.pageviews.should == 2
+      end
+
+    end
+
+    describe "the returned Pageview object" do
 
       before { @pageview = Tracker.track(@site) }
 
       it "has a site id" do
         @pageview.site.should == @site
+      end
+
+      it "has a pageview count of 1" do
+        @pageview.pageviews.should == 1
       end
 
     end

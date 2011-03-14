@@ -7,6 +7,7 @@ describe Tracker do
 
     before do
       @site = Site.create!
+      Measurement.any_instance.stubs(:push_changes)
     end
 
     it "creates a new measurement" do

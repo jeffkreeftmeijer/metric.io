@@ -7,6 +7,10 @@ gem 'sqlite3'
 
 gem 'pusher'
 
+group :development, :test do
+  gem 'watchr'
+end
+
 group :test do
   gem 'rspec-rails'
   gem 'mocha'

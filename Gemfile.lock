@@ -109,6 +109,7 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.24)
+    watchr (0.7)
 
 PLATFORMS
   ruby
@@ -121,3 +122,4 @@ DEPENDENCIES
   rails!
   rspec-rails
   sqlite3
+  watchr
